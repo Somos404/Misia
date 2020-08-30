@@ -1,0 +1,518 @@
+
+/* LAYOUT */
+@font-face{
+  font-family: 'Helvetica Condensed';
+  src: url(../fonts/Helvetica-Condensed.otf);
+}
+@font-face{
+  font-family: 'Graphik BoldItalic';
+  src: url(../fonts/Graphik-BoldItalic.otf);
+}
+@font-face{
+  font-family: 'Graphik SemiboldItalic';
+  src: url(../fonts/Graphik-SemiboldItalic.otf);
+}
+@font-face{
+  font-family: 'Graphik Medium';
+  src: url(../fonts/Graphik-Medium.otf);
+}
+#placeholder {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #FFFFFF;
+}
+#placeholder .d-flex{
+  width: 100vw;
+  height: 100vh;
+}
+
+.footer-link li{
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.footer-link li a{
+  color: initial;
+}
+.footer--logo{
+  max-width: 250px;
+}
+.copyright{
+  padding-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.copyright li{
+  padding-left: 5px;
+  padding-right: 5px;
+  border-right: 1px solid #000000;
+}
+.copyright li:last-child{
+  border-right: 1px solid transparent;
+}
+@media (max-width: 768px){
+  .copyright{
+    padding-top: 2rem;
+    display: block;
+  }
+  .copyright li{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1rem;
+    border: 0;
+  }
+}
+
+/* GLOBALS */
+@media (min-width: 1367px){
+  .container{
+    max-width: 1340px;
+  }
+}
+.g-bolditalic{
+  font-family: 'Graphik BoldItalic', sans-serif;
+}
+.g-semibolditalic{
+  font-family: 'Graphik SemiboldItalic', sans-serif;
+}
+.g-medium{
+  font-family: 'Graphik Medium', sans-serif;
+}
+.h-condensed{
+  font-family: 'Helvetica Condensed', sans-serif;
+}
+
+.bg-gray{
+  background-color: #f0f0f0;
+}
+
+.btn-generic{
+  background: #000;
+  color: #FFF !important;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  letter-spacing: 3px;
+  border-radius: 0;
+  border: 2px solid transparent;
+}
+.btn-generic:hover{
+  background: #FFF;
+  color: #000 !important;
+  border: 2px solid #000;
+}
+a:focus{
+  outline: 0;
+  box-shadow: none;
+}
+.btn.focus, .btn:focus{
+  outline: 0;
+  box-shadow: none;
+}
+.first-section{
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+/* HOME */
+/* Sldier */
+.main-slider{
+  margin-top: 95px;
+}
+@media (min-width: 1367px){
+  .main-slider{
+    margin-top: 90px;
+  }
+}
+@media (min-width: 1441px){
+  .main-slider{
+    margin-top: 120px;
+  }
+}
+.slick-slider .slider-arrow{
+  width: 30px;
+  top: calc(50% - 15px);
+  position: absolute;
+  cursor: pointer;
+}
+.slick-slider .slider-arrow.arrow--left{
+  left: 20px;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+.slick-slider .slider-arrow.arrow--right{
+  right: 20px;
+}
+@media (max-width: 768px){
+  .slick-slider .slider-arrow{
+    width: 20px;
+    top: calc(50% - 10px);
+  }
+  .slick-slider .slider-arrow.arrow--left{
+    left: 10px;
+  }
+  .slick-slider .slider-arrow.arrow--right{
+    right: 10px;
+  }
+}
+.slick-slide{
+  position: relative;
+}
+.slick-slide img{
+  width: 100%;
+}
+.slick-slide .slide-text{
+  position: absolute;
+  width: 100%;
+  bottom: 17%;
+}
+@media (min-width: 1367px){
+  .slick-slide .slide-text{
+    bottom: 20%;
+  }
+}
+@media (min-width: 1441px){
+  .slick-slide .slide-text{
+    bottom: 22%;
+  }
+}
+.slick-slide .slide-text h1{ 
+  color: #FFF;
+  font-size: 1.5rem;
+  letter-spacing: 7px;
+  line-height: 1.25;
+}
+@media (min-width: 1367px){
+  .slick-slide .slide-text h1{
+    font-size: 2rem;
+    letter-spacing: 10px;
+  }
+}
+@media (max-width: 768px){
+  .slick-slide .slide-text h1{
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  .slick-slide .slide-text .btn-generic{
+    padding: 5px 17px;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+}
+.slick-dotted.slick-slider{
+  margin-bottom: 0;
+}
+.slick-dots{
+  bottom: 10px;
+}
+.slick-dots li button{
+  border: 1.5px solid #FFF;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+}
+.slick-dots li button:before{
+  font-size: 18px;
+  color: transparent;
+  opacity: .75;
+  line-height: 20px;
+  width: 18px;
+  height: 18px;
+}
+
+.slick-dots li.slick-active button{
+  border-color: transparent;
+}
+.slick-dots li.slick-active button:before{
+  color: #FFF;
+  opacity: 1;
+}
+/* .slick-prev:before, .slick-next:before{
+  font-family: 'slick';
+} */
+@media (max-width: 1367px) and (min-width: 1024px) {
+  .content-slider{
+    max-width: 82%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Phrase */
+.phrase{
+ /* padding-top: 3rem;
+ padding-bottom: 2rem; */
+ overflow-x: hidden;
+}
+.phrase .phrase--gallery video{
+  width: 100%;
+}
+.phrase .phrase--gallery img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px){
+  .phrase .h3{
+    font-size: 1rem;
+    letter-spacing: 1px;
+   }
+   .phrase--gallery{
+     margin-left: 0;
+     margin-right: 0;
+   }
+   .phrase--gallery .col-12{
+    margin-bottom: 1rem;
+  }
+}
+/* Showroom */
+.showroom .h2{
+  letter-spacing: 5px;
+}
+.showroom p{
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+@media (max-width: 768px){
+  .showroom .h2{
+    margin-top: 2rem;
+    letter-spacing: 5px;
+  }
+  .showroom p{
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+}
+/* Destacados */
+.destacados h3{
+  letter-spacing: 5px;
+}
+.destacados img{
+  cursor: pointer;
+}
+.destacados img:hover{
+  box-shadow: 0 5px 17px rgba(0,0,0,.35);
+}
+.destacados .price{
+  font-size: 18px;
+}
+.destacados .name{
+  font-size: 22px;
+}
+@media (max-width: 768px){
+  .overflow{
+    overflow: auto;
+    max-width: 100%;
+  }
+  .overflow .row{
+    width: 1280px;
+  }
+  .overflow .row .item{
+    max-width: 320px;
+  }
+  .destacados h3{
+    letter-spacing: 2px;
+  }
+}
+
+/* REGISTER */
+.card{
+  border-radius: 0;
+}
+.form-control{
+  border-radius: 0;
+}
+.form-control:focus{
+  color: initial;
+  background-color: initial;
+  border-color: initial;
+  outline: 0;
+  box-shadow: none;
+}
+.section-register .col-form-label, .section-login .col-form-label{
+  border: 0;
+}
+/* Vestidos a medida */
+.vestidos-a-medida{
+  margin-top: 95px;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+.vestidos-a-medida .step{
+  font-weight: 700;
+}
+.card-product{
+  margin-bottom: 15px;
+  border: 1px solid transparent; 
+  cursor: pointer;
+  padding: 5px;
+}
+.card-product:hover{
+  border-color: #000000; 
+}
+.card-product ul{
+  margin-top: 0.5rem;
+}
+.card-product p{
+  font-size: 14px;
+}
+.card-product .name{
+  margin-bottom: 15px; 
+}
+
+.content-slider{
+  position: relative;
+}
+.slider-vestidos{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 3rem;
+}
+.slider-vestido-a-medida-1{
+  opacity: 1;
+  z-index: 1020;
+}
+.slider-vestido-a-medida-2{
+  opacity: 1;
+}
+.slider-vestido-a-medida-3{
+  opacity: 1;
+}
+.card-color{
+  text-align: center;
+}
+.card-color .item-color{
+  width: 55px;
+  height: 55px;
+  background-color: black;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.item-color.magento{
+  background: #a629ac;
+}
+.item-color.petroleo{
+  background: #008faf;
+}
+.item-color.verde{
+  background: #009774;
+}
+.item-color.amarillo{
+  background: #d5b500;
+}
+.item-color.violeta{
+  background: #73187a;
+}
+form .col-form-label{
+  border: 1px solid #000000;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+form .form-control{
+  border: 1px solid #000000;
+  height: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #000000;
+}
+.vestidos-a-medida .btn-generic{
+  padding: 0px 15px;
+  letter-spacing: 1px;
+}
+.vestidos-a-medida .terms{
+  font-size: 0.9rem;
+  color:  #6a6e77;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+/*
+Galería de clientes 
+*/
+.section-gallery, .we-are-misia{
+  padding-top: 6.5rem;
+  padding-bottom: 5rem;
+}
+.gallery .col{
+  padding-right: 7px;
+  padding-left: 7px;
+}
+.gallery .gallery__item{
+  max-width: 200px;
+  margin-bottom: 12px;
+}
+.gallery .gallery__item img{
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  height: 171px;
+  width: 100%;
+}
+.mfp-bottom-bar{
+  display: none;
+}
+.mfp-bg{
+  opacity: 0.9;
+}
+
+/*
+We are Misia
+*/
+.misia-text{
+  font-size: 18px;
+  line-height: 1.7;
+}
+/*
+Advice
+*/
+.advice{
+  padding-top: 6.5rem;
+  padding-bottom: 5rem;
+}
+.advice p{
+  line-height: 1.4;
+  font-size: 1.25rem;
+}
+.advice .silueta p{
+  font-size: 1rem;
+}
+.title-underline{
+  position: relative;
+  display: inline-block;
+}
+.title-underline::after{
+  position: absolute;
+  content: '';
+  left: 0;
+  width: 100%;
+  height: 2px;
+  bottom: -3px;
+  background-color: #424753;
+}
+
+/* 
+Contact
+*/
+.contact{
+  padding-top: 6.5rem;
+  padding-bottom: 5rem;
+}
+.contact form label{
+  margin-bottom: 7px;
+  font-family: 'Helvetica Condensed', sans-serif;
+}
+.contact form label span{
+  font-family: 'Helvetica Condensed', sans-serif;
+  font-style: italic;
+}
+
+@media (min-width: 768px){
+  .contact form input{
+    width: 50%;
+  }
+  .contact form textarea{
+    width: 70%;
+  }
+}

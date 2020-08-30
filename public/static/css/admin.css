@@ -1,0 +1,77 @@
+body{
+    font-size: 14px;
+    
+}
+
+h2,h3,h4,h5,ul,body,html{
+    padding: 0px;
+    margin: 0px;
+}
+
+.wrapper{
+    min-height: 100vh;
+    overflow: hidden;
+   
+}
+.col1{
+    float:left;
+    position: relative;
+    z-index: 999;
+    width: 10%;
+    top: 80px;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.col2{
+    float:left;
+    width: 83%;
+    min-height: 100vh;
+    overflow: hidden;
+    
+}
+
+.sidebar{
+    background-color: #fff;
+    min-height: 100vh;
+    
+}
+
+.logo{
+    display: block;
+    margin: 0px auto;
+    padding-top: 24px;
+    width: 60%;
+}
+
+.user {
+    padding: 16px;
+    color: #000;
+    font-size: 1em;
+}
+
+a{
+    padding: 8px;
+    color: #000;
+    font-size: 1.2em;
+}
+
+.main ul li{
+    margin-bottom: 4px;
+}
+
+.page{
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.panel{
+    width:100%;
+    padding: inherit;
+    
+}
+
+h3.title{
+    padding: 12px 16px;
+    font-size: 1.1em;
+}
