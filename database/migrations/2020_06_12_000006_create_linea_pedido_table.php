@@ -15,9 +15,9 @@ class CreateLineaPedidoTable extends Migration
     {
         Schema::create('linea_pedido', function (Blueprint $table) {
             $table->id();
-            $table->integer('pedido_id');
+            $table->bigInteger('pedido_id')->unsigned();
             $table->foreign('pedido_id')->references('id')->on('pedido')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('producto_id');
+            $table->bigInteger('producto_id')->unsigned();
             $table->foreign('producto_id')->references('id')->on('producto')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

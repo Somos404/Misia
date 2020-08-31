@@ -14,5 +14,5 @@ Route::prefix('/admin')->group(function(){
     ]);
 
     //MÃ³dulo de categories
-    Route::get('/categories', 'CategoriasController@getHome');
+    Route::get('/categories', 'Admin\CategoriesController@getHome');
 });

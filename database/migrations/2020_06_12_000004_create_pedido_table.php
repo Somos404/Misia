@@ -20,7 +20,7 @@ class CreatePedidoTable extends Migration
             $table->string('localidad');
             $table->string('dirección');
             $table->float('coste_envio');
-            $table->integer('usuario_id');
+            $table->bigInteger('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
