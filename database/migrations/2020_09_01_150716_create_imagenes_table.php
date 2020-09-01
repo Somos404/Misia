@@ -15,6 +15,7 @@ class CreateImagenesTable extends Migration
     {
         Schema::create('imagenes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('color');
             $table->string('img');
             $table->bigInteger('product_color_id')->unsigned();

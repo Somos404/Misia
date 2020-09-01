@@ -34,7 +34,7 @@
                     name="color1" type="color"
                     value="" />
                 <div  class="custom-file">
-                    <input multiple id="imgColor1" value="" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor1">
+                    <input id="imgColor1" value="" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor1[]">
                 </div>
             </div>
             <div class="col-md-3 content-input">
@@ -46,7 +46,7 @@
                   type="color" 
                   value="" />
                 <div  class="custom-file">
-                  <input id="imgColor2" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor2">
+                  <input id="imgColor2" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor2[]">
                 </div>
             </div>
             <div class="col-md-3 content-input">
@@ -57,7 +57,7 @@
                   name="color3" type="color" 
                   value="" />
                   <div class="custom-file">
-                    <input id="imgColor3" hidden  type="file" accept=".png, .jpg, .jpeg" name="imgColor3">
+                    <input id="imgColor3" hidden  type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor3[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -68,7 +68,7 @@
                   name="color4" type="color" 
                   value="" />
                   <div  class="custom-file">
-                    <input  id="imgColor4" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor4">
+                    <input  id="imgColor4" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor4[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -79,7 +79,7 @@
                   name="color5" type="color" 
                   value="" />
                   <div  class="custom-file">
-                    <input id="imgColor5" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor5">
+                    <input id="imgColor5" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor5[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -90,7 +90,7 @@
                   name="color6" type="color" 
                   value="" />
                   <div class="custom-file">
-                    <input id="imgColor6" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor6">
+                    <input id="imgColor6" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor6[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -101,7 +101,7 @@
                   name="color7" type="color" 
                   value="" />
                   <div  class="custom-file">
-                    <input id="imgColor7" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor7">
+                    <input id="imgColor7" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor7[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -112,7 +112,7 @@
                   name="color8" type="color" 
                   value="" />
                   <div  class="custom-file">
-                    <input id="imgColor8" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor8">
+                    <input id="imgColor8" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor8[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -123,7 +123,7 @@
                   name="color9" type="color" 
                   value="" />
                   <div  class="custom-file">
-                    <input id="imgColor9" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor9">
+                    <input id="imgColor9" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor9[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -134,7 +134,7 @@
                   name="color10" type="color" 
                   value="" />
                   <div class="custom-file">
-                    <input id="imgColor10" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor10">
+                    <input id="imgColor10" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor10[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -145,7 +145,7 @@
                   name="color11" type="color" 
                   value="" />
                   <div class="custom-file">
-                    <input id="imgColor11" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor11">
+                    <input id="imgColor11" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor11[]">
                   </div>
             </div>
             <div class="col-md-3 content-input">
@@ -157,7 +157,7 @@
                   type="color" 
                   value="" />
                   <div class="custom-file">
-                    <input id="imgColor12" value="10" hidden type="file" accept=".png, .jpg, .jpeg" name="imgColor12">
+                    <input id="imgColor12" value="10" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor12[]">
                   </div>
             </div>
         </div>

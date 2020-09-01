@@ -44,100 +44,123 @@ class ProductController extends Controller
         $product->color1 = $request->input('color1');
         if($request->hasFile('imgColor1')){
 
-            dd($request->file('imgColor1'));
-            
-            $file = $request->file('imgColor1');
-            $name = 'imgColor1'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color1_a')).'/',$name);
+            $files = $request->file('imgColor1');
+            foreach ($files as $file) {
+                $name = 'imgColor1'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color1_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color1_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color1'), 'name'=>$request->input('color1_a')]);
+            }
         }
         $product->color2 = $request->input('color2');
         if($request->hasFile('imgColor2')){
-            $file = $request->file('imgColor2');
-            $name = 'imgColor2'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color2_a')).'/',$name);
-
-            $product->image_destacada = $name;
-            $imagenes = new Imagenes;
+            $files = $request->file('imgColor2');
+            foreach ($files as $file) {
+                $name = 'imgColor2'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color2_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color2_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color2'), 'name'=>$request->input('color2_a')]);
+            }
         }
         $product->color3 = $request->input('color3');
         if($request->hasFile('imgColor3')){
-            $file = $request->file('imgColor3');
-            $name = 'imgColor3'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color3_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor3');
+            foreach ($files as $file) {
+                $name = 'imgColor3'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color3_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color3_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color3'), 'name'=>$request->input('color3_a')]);
+            }
         }
         $product->color4 = $request->input('color4');
         if($request->hasFile('imgColor4')){
-            $file = $request->file('imgColor4');
-            $name = 'imgColor4'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color4_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor4');
+            foreach ($files as $file) {
+                $name = 'imgColor4'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color4_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color4_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color4'), 'name'=>$request->input('color4_a')]);
+            }
         }
         $product->color5 = $request->input('color5');
         if($request->hasFile('imgColor5')){
-            $file = $request->file('imgColor5');
-            $name = 'imgColor5'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color5_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor5');
+            foreach ($files as $file) {
+                $name = 'imgColor5'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color5_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color5_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color5'), 'name'=>$request->input('color5_a')]);
+            }
         }
         $product->color6 = $request->input('color6');
         if($request->hasFile('imgColor6')){
-            $file = $request->file('imgColor6');
-            $name = 'imgColor6'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color6_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor6');
+            foreach ($files as $file) {
+                $name = 'imgColor6'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color6_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color6_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color6'), 'name'=>$request->input('color6_a')]);
+            }
         }
         $product->color7 = $request->input('color7');
         if($request->hasFile('imgColor7')){
-            $file = $request->file('imgColor7');
-            $name = 'imgColor7'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color7_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor7');
+            foreach ($files as $file) {
+                $name = 'imgColor7'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color7_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color7_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color7'), 'name'=>$request->input('color7_a')]);
+            }
         }
         $product->color8 = $request->input('color8');
         if($request->hasFile('imgColor8')){
-            $file = $request->file('imgColor8');
-            $name = 'imgColor8'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color8_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor8');
+            foreach ($files as $file) {
+                $name = 'imgColor8'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color8_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color8_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color8'), 'name'=>$request->input('color8_a')]);
+            }
         }
         $product->color9 = $request->input('color9');
         if($request->hasFile('imgColor9')){
-            $file = $request->file('imgColor9');
-            $name = 'imgColor9'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color9_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor9');
+            foreach ($files as $file) {
+                $name = 'imgColor9'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color9_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color9_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color9'), 'name'=>$request->input('color9_a')]);
+            }
         }
         $product->color10 = $request->input('color10');
         if($request->hasFile('imgColor10')){
-            $file = $request->file('imgColor10');
-            $name = 'imgColor10'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color10_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor10');
+            foreach ($files as $file) {
+                $name = 'imgColor10'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color10_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color10_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color10'), 'name'=>$request->input('color10_a')]);
+            }
         }
         $product->color11 = $request->input('color11');
         if($request->hasFile('imgColor11')){
-            $file = $request->file('imgColor11');
-            $name = 'imgColor11'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color11_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor11');
+            foreach ($files as $file) {
+                $name = 'imgColor11'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color11_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color11_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color11'), 'name'=>$request->input('color11_a')]);
+            }
         }
         $product->color12 = $request->input('color12');
         if($request->hasFile('imgColor12')){
-            $file = $request->file('imgColor12');
-            $name = 'imgColor12'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
-            $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color12_a')).'/',$name);
-
-            $product->image_destacada = $name;
+            $files = $request->file('imgColor12');
+            foreach ($files as $file) {
+                $name = 'imgColor12'.time().preg_replace('/\s+/', '', $file->getClientOriginalName());
+                $file->move(public_path().'/images/'.preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color12_a')).'/',$name);
+                $dir = preg_replace('/\s+/', '_',$request->input('name')).'/'.preg_replace('/\s+/', '_',$request->input('color12_a')).'/'.$name;
+                array_push($Imgs, ['path'=> $dir, 'color'=>$request->input('color12'), 'name'=>$request->input('color12_a')]);
+            }
         }
         $product->cont_bust = $request->input('cont_bust') ? 1 : 0;
         $product->cont_cint = $request->input('cont_cint') ? 1 : 0;
@@ -175,6 +198,15 @@ class ProductController extends Controller
 
         if($product->save())
         {
+            foreach ( $Imgs as $img) {
+                $imagenes = new Imagenes;
+                $imagenes->img = $img['path'];
+                $imagenes->color = $img['color'];
+                $imagenes->name = $img['name'];
+                $imagenes->product_color_id = $product->id;
+                $imagenes->save();
+            }
+
             return redirect('/products')->with('message', 'Guardado con Éxito.')->with('typealert', 'success');
         }
 
