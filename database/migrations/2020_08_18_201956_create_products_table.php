@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             
             $table->integer('status');
             $table->string('name');
+            $table->string('descripcion');
             
             $table->string('color1');
             $table->string('color2');
@@ -39,7 +40,9 @@ class CreateProductsTable extends Migration
             $table->integer('cont_bra');
             $table->integer('larg_taj');
             $table->integer('tip_bret');
-            $table->string('image');
+            $table->string('image_destacada');
+            $table->string('image_espalda');
+            $table->string('image_lateral');
             $table->decimal('price', 11,2);
             $table->string('slug');
             $table->timestamps();
