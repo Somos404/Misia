@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/vestidos-a-medida', function () {
-    return view('vestidos');
-});
+Route::get('/vestidos-a-medida', [
+    'uses' => 'VestidosAMedidaController@index',
+    'as' => 'users.edit'
+]);
 
 
 Route::get('/vestidos-a-medida-dos', function () {
