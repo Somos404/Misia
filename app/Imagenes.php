@@ -9,7 +9,7 @@ class Imagenes extends Model
     protected $table = "imagenes";
 
     protected $fillable = [
-        'color', 'img','product_color_id', 'id' 
+        'color', 'name', 'img','product_color_id', 'id' 
    ];
 
 }

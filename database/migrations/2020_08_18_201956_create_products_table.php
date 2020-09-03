@@ -35,6 +35,7 @@ class CreateProductsTable extends Migration
             $table->integer('cont_bust');
             $table->integer('cont_cint');
             $table->integer('cont_cadera');
+            $table->integer('estatura_total');
             $table->integer('lar_cint');
             $table->integer('larg_mang');
             $table->integer('cont_bra');

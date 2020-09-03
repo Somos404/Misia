@@ -165,6 +165,7 @@ class ProductController extends Controller
         $product->cont_bust = $request->input('cont_bust') ? 1 : 0;
         $product->cont_cint = $request->input('cont_cint') ? 1 : 0;
         $product->cont_cadera = $request->input('cont_cadera') ? 1 : 0;
+        $product->estatura_total = $request->input('estatura_total') ? 1 : 0;
         $product->lar_cint = $request->input('lar_cint') ? 1 : 0;
         $product->larg_mang = $request->input('larg_mang') ? 1 : 0;
         $product->cont_bra = $request->input('cont_bra') ? 1 : 0;

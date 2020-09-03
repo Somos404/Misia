@@ -8,6 +8,16 @@
 
 
 @section('content')
+
+    <!-- Loader -->
+    <div id="placeholder" class="position-fixed">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
     @if (session()->has('message'))
         <div class="alert alert-{{ session('typealert') }}">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -29,136 +39,124 @@
             <div class="col-md-3 content-input">
                 <label for="color1">Color 1</label>
                 {!! Form::text('color1_a', null, ['class' => 'form-control']) !!}
-                <input 
-                    onchange="document.getElementById('imgColor1').removeAttribute('hidden'); document.getElementById('imgColor1').required = true;" 
-                    name="color1" type="color"
-                    value="" />
-                <div  class="custom-file">
-                    <input id="imgColor1" value="" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor1[]">
+                <input
+                    onchange="document.getElementById('imgColor1').removeAttribute('hidden'); document.getElementById('imgColor1').required = true;"
+                    name="color1" type="color" value="" />
+                <div class="custom-file">
+                    <input id="imgColor1" value="" hidden type="file" accept=".png, .jpg, .jpeg" multiple
+                        name="imgColor1[]">
                 </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color">Color 2</label>
                 {!! Form::text('color2_a', null, ['class' => 'form-control']) !!}
-                <input 
-                  onchange="document.getElementById('imgColor2').removeAttribute('hidden'); document.getElementById('imgColor2').required = true;"
-                  name="color2" 
-                  type="color" 
-                  value="" />
-                <div  class="custom-file">
-                  <input id="imgColor2" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor2[]">
+                <input
+                    onchange="document.getElementById('imgColor2').removeAttribute('hidden'); document.getElementById('imgColor2').required = true;"
+                    name="color2" type="color" value="" />
+                <div class="custom-file">
+                    <input id="imgColor2" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor2[]">
                 </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color3">Color 3</label>
                 {!! Form::text('color3_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor3').removeAttribute('hidden'); document.getElementById('imgColor3').required = true;"
-                  name="color3" type="color" 
-                  value="" />
-                  <div class="custom-file">
-                    <input id="imgColor3" hidden  type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor3[]">
-                  </div>
+                <input
+                    onchange="document.getElementById('imgColor3').removeAttribute('hidden'); document.getElementById('imgColor3').required = true;"
+                    name="color3" type="color" value="" />
+                <div class="custom-file">
+                    <input id="imgColor3" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor3[]">
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color4">Color 4</label>
                 {!! Form::text('color4_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor4').removeAttribute('hidden'); document.getElementById('imgColor4').required = true;"
-                  name="color4" type="color" 
-                  value="" />
-                  <div  class="custom-file">
-                    <input  id="imgColor4" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor4[]">
-                  </div>
+                <input
+                    onchange="document.getElementById('imgColor4').removeAttribute('hidden'); document.getElementById('imgColor4').required = true;"
+                    name="color4" type="color" value="" />
+                <div class="custom-file">
+                    <input id="imgColor4" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor4[]">
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color5">Color 5</label>
                 {!! Form::text('color5_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor5').removeAttribute('hidden'); document.getElementById('imgColor5').required = true;"
-                  name="color5" type="color" 
-                  value="" />
-                  <div  class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor5').removeAttribute('hidden'); document.getElementById('imgColor5').required = true;"
+                    name="color5" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor5" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor5[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color6">Color 6</label>
                 {!! Form::text('color6_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor6').removeAttribute('hidden'); document.getElementById('imgColor6').required = true;"
-                  name="color6" type="color" 
-                  value="" />
-                  <div class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor6').removeAttribute('hidden'); document.getElementById('imgColor6').required = true;"
+                    name="color6" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor6" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor6[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color7">Color 7</label>
                 {!! Form::text('color7_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor7').removeAttribute('hidden'); document.getElementById('imgColor7').required = true;"
-                  name="color7" type="color" 
-                  value="" />
-                  <div  class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor7').removeAttribute('hidden'); document.getElementById('imgColor7').required = true;"
+                    name="color7" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor7" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor7[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color8">Color 8</label>
                 {!! Form::text('color8_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor8').removeAttribute('hidden'); document.getElementById('imgColor8').required = true;"
-                  name="color8" type="color" 
-                  value="" />
-                  <div  class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor8').removeAttribute('hidden'); document.getElementById('imgColor8').required = true;"
+                    name="color8" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor8" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor8[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color9">Color 9</label>
                 {!! Form::text('color9_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor9').removeAttribute('hidden'); document.getElementById('imgColor9').required = true;"
-                  name="color9" type="color" 
-                  value="" />
-                  <div  class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor9').removeAttribute('hidden'); document.getElementById('imgColor9').required = true;"
+                    name="color9" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor9" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor9[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color10">Color 10</label>
                 {!! Form::text('color10_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor10').removeAttribute('hidden'); document.getElementById('imgColor10').required = true;"
-                  name="color10" type="color" 
-                  value="" />
-                  <div class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor10').removeAttribute('hidden'); document.getElementById('imgColor10').required = true;"
+                    name="color10" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor10" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor10[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color11">Color 11</label>
                 {!! Form::text('color11_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor11').removeAttribute('hidden'); document.getElementById('imgColor11').required = true;"
-                  name="color11" type="color" 
-                  value="" />
-                  <div class="custom-file">
+                <input
+                    onchange="document.getElementById('imgColor11').removeAttribute('hidden'); document.getElementById('imgColor11').required = true;"
+                    name="color11" type="color" value="" />
+                <div class="custom-file">
                     <input id="imgColor11" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor11[]">
-                  </div>
+                </div>
             </div>
             <div class="col-md-3 content-input">
                 <label for="color12">Color 12</label>
                 {!! Form::text('color12_a', null, ['class' => 'form-control']) !!}
-                <input  
-                  onchange="document.getElementById('imgColor12').removeAttribute('hidden'); document.getElementById('imgColor12').required = true;"
-                  name="color12" 
-                  type="color" 
-                  value="" />
-                  <div class="custom-file">
-                    <input id="imgColor12" value="10" hidden type="file" accept=".png, .jpg, .jpeg" multiple name="imgColor12[]">
-                  </div>
+                <input
+                    onchange="document.getElementById('imgColor12').removeAttribute('hidden'); document.getElementById('imgColor12').required = true;"
+                    name="color12" type="color" value="" />
+                <div class="custom-file">
+                    <input id="imgColor12" value="10" hidden type="file" accept=".png, .jpg, .jpeg" multiple
+                        name="imgColor12[]">
+                </div>
             </div>
         </div>
         <!--Medidas-->
@@ -174,6 +172,10 @@
             <div class="col-md-3 content-input">
                 <label for="cont_cadera">Contorno de cadera</label>
                 {!! Form::checkbox('cont_cadera', 'value') !!}
+            </div>
+            <div class="col-md-3 content-input">
+                <label for="cont_cadera">Estatura total</label>
+                {!! Form::checkbox('estatura_total', 'value') !!}
             </div>
             <div class="col-md-3 content-input">
                 <label for="lar_cint">Largo desde cintura</label>
@@ -244,4 +246,28 @@
             </div>
         </div>
     </form>
+
+
+    <script>
+
+        $(function() {
+            setTimeout(function() {
+                setTimeout(function() {
+                    let spinner = document.querySelector('#placeholder');
+                    spinner.style.display = 'none';
+                }, 500);
+                let fadeTarget = document.getElementById('placeholder');
+                let fadeEffect = setInterval(function() {
+                    if (!fadeTarget.style.opacity) {
+                        fadeTarget.style.opacity = 1;
+                    }
+                    if (fadeTarget.style.opacity > 0) {
+                        fadeTarget.style.opacity -= 0.1;
+                    } else {
+                        clearInterval(fadeEffect);
+                    }
+                }, 50);
+            }, 500);
+        })
+    </script>
 @endsection

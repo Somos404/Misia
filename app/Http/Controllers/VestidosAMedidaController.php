@@ -15,6 +15,10 @@ class VestidosAMedidaController extends Controller
     public function index()
     {
         $products = DB::table('products')->get();
+        //dd($products);
+        if($products->isEmpty()){
+            return view('home');
+        }
         return view('vestidos', ['products' => $products]);
     }
 
@@ -23,9 +27,29 @@ class VestidosAMedidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $product = DB::table('products')->find($request->id);
+        $imagenes = DB::table('imagenes')->where('product_color_id', $request->id)->get()->groupBy('color');
+        
+        $dataColors =[];
+        foreach ($imagenes as $value) {
+            $aux =[];
+            $colorname = '';
+            $color = '';
+            foreach ($value as $item) {
+                $colorname = $item->name;
+                $color = $item->color;
+                array_push($aux, $item->img);
+            }
+            array_push($dataColors, ['colorname'=> $colorname, 'color'=>$color ,'img'=>$aux]);
+        }
+
+        /* foreach ($dataColors as $value) {
+            DD($value);
+        } */
+        //DD($dataColors);
+        return view('vestidos-dos', ['product' =>$product, 'imagenes' => $dataColors]);
     }
 
     /**
@@ -58,7 +82,7 @@ class VestidosAMedidaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('vestidos-dos');
     }
 
     /**

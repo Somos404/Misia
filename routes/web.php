@@ -22,10 +22,15 @@ Route::get('/vestidos-a-medida', [
     'as' => 'users.edit'
 ]);
 
+Route::get('/vestidos-a-medida-dos', [
+    'uses' => 'VestidosAMedidaController@create',
+    'as' => 'users.create'
+]);
 
-Route::get('/vestidos-a-medida-dos', function () {
+
+/* Route::get('/vestidos-a-medida-dos', function () {
     return view('vestidos-dos');
-});
+}); */
 
 Route::get('/detalle-de-compra', function () {
     return view('detalle-de-compra');
