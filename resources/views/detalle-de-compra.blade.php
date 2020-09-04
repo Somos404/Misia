@@ -3,6 +3,12 @@
 @section('content')
 
 <section class="vestidos-a-medida">
+  @if (session()->has('message'))
+	<div id="alert" class="alert alert-{{ session('typealert') }}">
+		<button type="button" onclick="document.getElementById('alert').setAttribute('hidden', true);" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		{!! session('message') !!}
+	</div>
+  @endif
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-5 h-condensed">
@@ -57,22 +63,24 @@
             <input type="text" name="larg_taj" value="{{$detalle->larg_taj}}" hidden>
 
             @endif
+
             @if ($detalle->tip_bret == 'Delgado')
-            <p class="mb-4">Tipo de Bretel: Delgado</p>
-            <input type="text" name="tip_bret" value="{{$detalle->tip_bret}}" hidden>
-            <input type="text" name="price" value="{{$product->price}}" hidden>
-
-            @endif
-            @if ($detalle->tip_bret == 'Delgado con aplique')
-            <p class="mb-4">Tipo de Bretel: Delgado con aplique + $1500</p>
-            <input type="text" name="tip_bret" value="{{$detalle->tip_bret}}" hidden>
-            <input type="text" name="price" value="{{$product->price + 1500}}" hidden>
-
+              <p class="mb-4">Tipo de Bretel: Delgado</p>
+              <input type="text" name="tip_bret" value="{{$detalle->tip_bret}}" hidden>
+              <input type="text" name="price" value="{{$product->price}}" hidden>
+            @else
+                @if ($detalle->tip_bret == 'Delgado con aplique')
+                  <p class="mb-4">Tipo de Bretel: Delgado con aplique + $1500</p>
+                  <input type="text" name="tip_bret" value="{{$detalle->tip_bret}}" hidden>
+                  <input type="text" name="price" value="{{$product->price + 1500}}" hidden>
+                @else
+                  <input type="text" name="price" value="{{$product->price}}" hidden>
+                @endif
             @endif
             <p class="mb-4">Precio: ${{ $product->price + 1500 }} </p>
           </div>
           <div class="col-md-12 mt-3">
-              <button class="btn h-condensed btn-generic" type="submit" >FINALIZAR COMPRA</button>
+              <button class="btn h-condensed btn-generic" type="submit" >AÑADIR A CARRITO</button>
               <p class="terms">  
                 Tiempo de confeccion : 10 dias <br/>
                 Tiempo de envio: 10 dias <br/>
@@ -124,6 +132,7 @@
   </div>
 </section>
 <script>
+
   $(function() {
     var img = {!!json_encode($imagenes['img'], JSON_HEX_TAG) !!};
     var cont = 0;

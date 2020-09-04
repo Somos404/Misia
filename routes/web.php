@@ -22,6 +22,11 @@ Route::get('/vestidos-a-medida', [
     'as' => 'users.edit'
 ]);
 
+Route::get('/getCarrito', [
+    'uses' => 'CarritoController@index',
+    'as' => 'users.carrito'
+]);
+
 Route::get('/vestidos-a-medida-dos', [
     'uses' => 'VestidosAMedidaController@create',
     'as' => 'users.create'

@@ -90,7 +90,7 @@ class VestidosAMedidaController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->request);
+        
         $userOder = new UserOrder;
         $userOder->colorname = $request->input('colorname');
         $userOder->color = $request->input('color');
@@ -109,9 +109,11 @@ class VestidosAMedidaController extends Controller
         $userOder->user_id = Auth::user()->id;
         $userOder->product_id = $request->input('product_id');
 
-        $userOder->save();
-        
-        //enviar al carrito
+        if ($userOder->save()) {
+            return back()->with('message', 'Se agregó al carrito.')->with('typealert', 'success'); 
+        }
+        return back()->with('message', 'Problemas en la operación intente otra ves.')->with('typealert', 'danger');
+      
     }
 
     /**
