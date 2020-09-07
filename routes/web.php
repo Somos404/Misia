@@ -22,19 +22,34 @@ Route::get('/vestidos-a-medida', [
     'as' => 'users.edit'
 ]);
 
+Route::get('/getCarrito', [
+    'uses' => 'CarritoController@index',
+    'as' => 'users.carrito'
+]);
+
 Route::get('/vestidos-a-medida-dos', [
     'uses' => 'VestidosAMedidaController@create',
     'as' => 'users.create'
+]);
+
+Route::get('/detalle-de-compra', [
+    'uses' => 'VestidosAMedidaController@preView',
+    'as' => 'users.preView'
+]);
+
+Route::post('/carrito-de-compra', [
+    'uses' => 'VestidosAMedidaController@store',
+    'as' => 'users.store'
 ]);
 
 
 /* Route::get('/vestidos-a-medida-dos', function () {
     return view('vestidos-dos');
 }); */
-
+/* 
 Route::get('/detalle-de-compra', function () {
     return view('detalle-de-compra');
-});
+}); */
 
 Route::get('/clientes', function () {
     return view('customers');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePedidoTable extends Migration
+class CreateAddressTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreatePedidoTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedido', function (Blueprint $table) {
+        Schema::create('address', function (Blueprint $table) {
             $table->id();
             $table->string('pais');
             $table->string('provincia');
             $table->string('localidad');
             $table->string('dirección');
-            $table->float('coste_envio');
-            /* $table->bigInteger('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); */
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreatePedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedido');
+        Schema::dropIfExists('address');
     }
 }

@@ -11,7 +11,7 @@
                     <div class="row" id="card-container">
                         @foreach ($imagenes as $img)
                             <div class="col-2">
-                                <div class="card-color" onclick="sliderHandler(`{{ $img['color'] }}`,`{{ $img['colorname'] }}`,{{ json_encode($img['img']) }});">
+                                <div class="card-color" onclick="sliderHandler(`{{ $img['color'] }}`,`{{ $img['colorname'] }}`,{{ json_encode($img['img']) }}, `{{ $img['id'] }}`);">
                                     <div class="item-color" style="background-color: {{ $img['color'] }}"></div>
                                     <p class="parrafo" id="{{ $img['colorname'] }}">  {{ $img['colorname'] }} </p>
                                 </div>
@@ -21,75 +21,75 @@
                     <div class="row">
                         <div class="col-md-10">
                             <h5 class="mt-5"> PASO 3: Selecciona tus medidas </h5>
-                            <form>
+                            <form id="myform2" action="detalle-de-compra">
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Contorno de busto</label>
+                                    <label class="col-sm-6 col-form-label">Contorno de Busto</label>
                                     <div class="col-sm-6">
                                         <label for="control-busto"></label>
-                                        {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_bust == 0?'disabled':'']) !!}
+                                        {!! Form::selectRange('cont_bust', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_bust == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Contorno de cintura</label>
+                                    <label class="col-sm-6 col-form-label">Contorno de Cintura</label>
                                     <div class="col-sm-6">
-                                      {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_cint == 0?'disabled':'']) !!}
+                                      {!! Form::selectRange('cont_cint', 50, 160, null, ['placeholder' => 'Seleccionar', $product->cont_cint == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Contorno de cadera</label>
+                                    <label class="col-sm-6 col-form-label">Contorno de Cadera</label>
                                     <div class="col-sm-6">
-                                      {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_cadera == 0?'disabled':'']) !!}
+                                      {!! Form::selectRange('cont_cadera', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_cadera == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Estatura total</label>
+                                    <label class="col-sm-6 col-form-label">Estatura Total</label>
                                     <div class="col-sm-6">
-                                      {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->estatura_total == 0?'disabled':'']) !!}
+                                      {!! Form::selectRange('estatura_total', 120, 190, null, ['placeholder' => 'Seleccionar', $product->estatura_total == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Largo de cintura</label>
+                                    <label class="col-sm-6 col-form-label">Largo desde Cintura</label>
                                     <div class="col-sm-6">
-                                      {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->lar_cint == 0?'disabled':'']) !!}
+                                      {!! Form::selectRange('lar_cint', 70, 140, null, ['placeholder' => 'Seleccionar', $product->lar_cint == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Largo de mangas</label>
+                                    <label class="col-sm-6 col-form-label">Largo de Mangas</label>
                                     <div class="col-sm-6">
-                                      {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->larg_mang == 0?'disabled':'']) !!}
+                                      {!! Form::selectRange('larg_mang', 30, 70, null, ['placeholder' => 'Seleccionar', $product->larg_mang == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Contorno brazo</label>
+                                    <label class="col-sm-6 col-form-label">Contorno de Brazo</label>
                                     <div class="col-sm-6">
-                                      {!! Form::selectRange('number', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_bra == 0?'disabled':'']) !!}
+                                      {!! Form::selectRange('cont_bra', 20, 50, null, ['placeholder' => 'Seleccionar', $product->cont_bra == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Largo de tajo</label>
+                                    <label class="col-sm-6 col-form-label">Largo de Tajo</label>
                                     <div class="col-sm-6">
-
                                         <label for="control-busto"></label>
-                                        {!!  Form::selectRange('number', 30, 70, null, ['placeholder' => 'Sin tajo'],null , [$product->tip_bret == 0?'disabled':'']) !!}
+                                        {!!  Form::selectRange('larg_taj', 30, 70, null, ['placeholder' => 'Sin tajo'], null , [$product->larg_taj == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
-                                    <label class="col-sm-6 col-form-label">Tipo de bretel</label>
+                                    <label class="col-sm-6 col-form-label">Tipo de Bretel</label>
                                     <div class="col-sm-6">
                                         <label for="contorno-brazo"></label>
-                                        {!!  Form::select('size', ['D' => 'Delgado', 'DA' => 'Delgado con aplique'],null , [$product->tip_bret == 0?'disabled':'']) !!}
+                                        {!! Form::select('tip_bret', [ 'Delgado' => 'Delgado', 'Delgado con aplique' => 'Delgado con aplique'],null , ['placeholder' => 'Seleccionar', $product->tip_bret == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
-                            </form>
-                            <p>* aplique con valor agregado + $1.500</p>
+                                <p>* aplique con valor agregado + $1.500</p>
+                                <input hidden type="text" value="{{ $product->id }}" name="id_vestido">
+                                <input hidden type="text" value="" name="id_color" id="id_color">
+                                <input hidden type="text" value="" name="color" id="colorsend">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 mt-3">
-                            <a class="btn h-condensed btn-generic" href="{{ url('/detalle-de-compra') }}">
-                                ABONAR
-                            </a>
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <button class="btn h-condensed btn-generic" type="submit" >Ir a Detalles</button>
                         </div>
+                    </form>
                     </div>
                 </div>
                 <div class="col-12 col-md-1"></div>
@@ -137,10 +137,10 @@
 
         $(function() {
           var img = {!!json_encode($imagenes[0], JSON_HEX_TAG) !!};
-          sliderHandler(img.color, img.colorname, img.img)     
+          sliderHandler(img.color, img.colorname, img.img, img.id)     
         })
 
-        function sliderHandler(color,id, img) {
+        function sliderHandler(color,id, img, id_color) {
 
           var x = document.getElementById("card-container");
           var y = x.getElementsByClassName("parrafo");
@@ -158,7 +158,9 @@
             document.getElementById("img" + i).src = 'images/' + img[cont];
             cont++;
           }
-
+          console.log(color);
+          document.getElementById("id_color").value = id_color;
+          document.getElementById("colorsend").value = color;
         }
     </script>
 @endsection
