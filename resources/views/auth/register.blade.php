@@ -25,7 +25,32 @@
                       @enderror
                   </div>
               </div>
+              <div class="form-group row">
+                  <label for="lastname" class="col-md-4 text-md-right col-form-label h-condensed">{{ __('Apellido*') }}</label>
 
+                  <div class="col-md-6">
+                      <input id="lastname" type="text" class="form-control h-condensed @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+
+                      @error('lastname')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="dni" class="col-md-4 text-md-right col-form-label h-condensed">{{ __('DNI*') }}</label>
+
+                <div class="col-md-6">
+                    <input id="dni" type="number" class="form-control h-condensed @error('dni') is-invalid @enderror" name="dni" value="{{ old('dni') }}" required autocomplete="dni" autofocus>
+
+                    @error('dni')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
               <div class="form-group row">
                 <label for="email" class="col-md-4 text-md-right col-form-label h-condensed">{{ __('E-Mail*') }}</label>
 

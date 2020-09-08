@@ -37,6 +37,11 @@ Route::get('/detalle-de-compra', [
     'as' => 'users.preView'
 ]);
 
+Route::get('/carrito', [
+    'uses' => 'CarritoController@carrito',
+    'as' => 'users.carrito'
+]);
+
 Route::post('/carrito-de-compra', [
     'uses' => 'VestidosAMedidaController@store',
     'as' => 'users.store'
@@ -68,10 +73,6 @@ Route::get('/contacto', function () {
 });
 
 Route::get('/mi-cuenta', function () {
-    return view('home');
-});
-
-Route::get('/carrito', function () {
     return view('home');
 });
 
