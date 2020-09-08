@@ -77,7 +77,6 @@
                             </div>
                         </div>
                         @foreach ($detalles as $item)
-                            
                             <a data-toggle="collapse" href="#collapse{{$item->id}}" aria-expanded="false"
                                 aria-controls="collapse">
                                 <div class="row">

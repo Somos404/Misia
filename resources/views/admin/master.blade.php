@@ -54,7 +54,10 @@
                 <a class="nav-link {{ Request::segment(1) === 'products' ? 'active' : null }}" href="{{ url('/products') }}"> <i class="fas fa-shopping-cart"></i> Productos </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Request::segment(1) === 'categories' ? 'active' : null }}" href="{{ url('admin/categories') }}"> <i class="fas fa-stream"></i> Categoríasa </a>
+                <a class="nav-link {{ Request::segment(1) === 'config' ? 'active' : null }}" href="{{ url('/config') }}"> <i class="fas fa-cogs"></i> Configuración </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ Request::segment(1) === 'categories' ? 'active' : null }}" href="{{ url('admin/categories') }}"> <i class="fas fa-stream"></i> Categorías </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ Request::segment(1) === 'users' ? 'active' : null }}" href="{{ url('/users') }}"> <i class="fas fa-user"></i> Usuarios </a>

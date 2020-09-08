@@ -40,7 +40,9 @@ class CreateProductsTable extends Migration
             $table->integer('larg_mang');
             $table->integer('cont_bra');
             $table->integer('larg_taj');
-            $table->integer('tip_bret');
+
+            $table->integer('tip_bret');//
+
             $table->string('image_destacada');
             $table->string('image_espalda');
             $table->string('image_lateral');

@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/logout', [
+    'uses' => 'Auth\LoginController@logout',
+    'as' => 'users.logout'
+]);
+
 Route::get('/vestidos-a-medida', [
     'uses' => 'VestidosAMedidaController@index',
     'as' => 'users.edit'
@@ -126,6 +131,16 @@ Auth::routes();
 
 /*producto*/
     Route::get('/products', 'ProductController@getHome');
+
     
+    Route::get('/config', [
+        'uses' => 'ProductController@config',
+        'as' => 'admin.config'
+    ]);
+
+    Route::post('/config/store', [
+        'uses' => 'ProductController@storeConfig',
+        'as' => 'products.storeConfig'
+    ]);
     
   

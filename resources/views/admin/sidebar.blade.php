@@ -26,6 +26,9 @@
                 <a href="{{ url('/products') }}"><i class="fas fa-box"></i>Productos</a>
             </li>
             <li>
+                <a href="{{ url('/config') }}"><i class="fas fa-box"></i>Configuración</a>
+            </li>
+            <li>
                 <a href="{{ url('/categories') }}"><i class="fas fa-box"></i>Categorías</a>
             </li>
             <li>
