@@ -4,7 +4,7 @@
 
     <section class="vestidos-a-medida">
         <div class="container">
-            <form>
+        <form action="{{url('/paypal/pay')}}">
                 <div class="row">
                     <div class="col-12 col-md-5 h-condensed">
                         <h5 class="step p-1 mb-4 bg-light"> Detalles de facturación </h5>

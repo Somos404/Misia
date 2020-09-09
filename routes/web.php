@@ -25,7 +25,7 @@ Route::get('/logout', [
 
 Route::get('/vestidos-a-medida', [
     'uses' => 'VestidosAMedidaController@index',
-    'as' => 'users.edit'
+    'as' => 'usersvestidosmedida'
 ]);
 
 Route::get('/getCarrito', [
@@ -148,5 +148,7 @@ Auth::routes();
         'uses' => 'ProductController@storeConfig',
         'as' => 'products.storeConfig'
     ]);
-    
-  
+
+    /*paypal*/
+    Route::get('/paypal/pay', 'PaymentController@payWithPayPal');
+    Route::get('/paypal/status', 'PaymentController@payPalStatus');
