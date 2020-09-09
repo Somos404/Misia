@@ -64,20 +64,12 @@
 
             @endif
 
-            @if ($detalle->tip_bret == 'Delgado')
-              <p class="mb-4">Tipo de Bretel: Delgado</p>
-              <input type="text" name="tip_bret" value="{{$detalle->tip_bret}}" hidden>
-              <input type="text" name="price" value="{{$product->price}}" hidden>
-            @else
-                @if ($detalle->tip_bret == 'Delgado con aplique')
-                  <p class="mb-4">Tipo de Bretel: Delgado con aplique + $1500</p>
-                  <input type="text" name="tip_bret" value="{{$detalle->tip_bret}}" hidden>
-                  <input type="text" name="price" value="{{$product->price + 1500}}" hidden>
-                @else
-                  <input type="text" name="price" value="{{$product->price}}" hidden>
-                @endif
+
+            @if ($detalle->tip_bret)
+              <p class="mb-4">Tipo de Bretel: {{$tip_bret->name}}</p>
+              <input type="text" name="tip_bret" value="{{$tip_bret->id}}" hidden>
             @endif
-            <p class="mb-4">Precio: ${{ $product->price + 1500 }} </p>
+            <p class="mb-4">Precio: ${{ $product->price + floatval($tip_bret?$tip_bret->price:0)}}</p>
           </div>
           <div class="col-md-12 mt-3">
               <button class="btn h-condensed btn-generic" type="submit" >AÑADIR A CARRITO</button>
@@ -92,7 +84,7 @@
       </div>
       <div class="col-12 col-md-1"></div>
       <div class="col-12 col-md-6 h-condensed">
-        <h5 class=""> ${{$product->price }} </h5>
+        <h5 class=""> ${{ $product->price + floatval($tip_bret?$tip_bret->price:0)}} </h5>
         <div id="div" class="slider-vestido-a-medida-1 slider-vestidos"
                         style="position: relative; z-index: 0; top: 0;">
                         <div>

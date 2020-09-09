@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use App\UserOrder;
 
 class CarritoController extends Controller
 {
@@ -18,12 +19,14 @@ class CarritoController extends Controller
         if(Auth::user()){
             $user = DB::table('user_order')->where('user_id', Auth::user()->id)
                     ->join('products', 'products.id', 'user_order.product_id')
+                    ->leftjoin('config', 'config.id', 'user_order.tip_bret')
                     ->select(
                         'user_order.id as id',
-                        'products.name as productorNombre',
-                        'products.price as productorPrecio',
-                        'user_order.price as precio',
-                        'user_order.tip_bret as bretel'
+                        'products.name as productorName',
+                        'products.price as productPrice',
+                        'user_order.price as totalPrice',
+                        'config.price as bretPrice',
+                        'config.name as bretName',
                     )->get();
     
             //dd($user);
@@ -31,5 +34,12 @@ class CarritoController extends Controller
             return view('carrito', ['detalles' => $user]);
         }
         return view('auth.login');
+    }
+
+    public function destroy($id){
+
+        $product = UserOrder::find($id);
+        $product->delete();
+        return redirect()->route('users.carrito');
     }
 }

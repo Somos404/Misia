@@ -25,7 +25,6 @@
                                 <div class="form-group row mx-0">
                                     <label class="col-sm-6 col-form-label">Contorno de Busto</label>
                                     <div class="col-sm-6">
-                                        <label for="control-busto"></label>
                                         {!! Form::selectRange('cont_bust', 60, 160, null, ['placeholder' => 'Seleccionar', $product->cont_bust == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
@@ -68,18 +67,26 @@
                                 <div class="form-group row mx-0">
                                     <label class="col-sm-6 col-form-label">Largo de Tajo</label>
                                     <div class="col-sm-6">
-                                        <label for="control-busto"></label>
                                         {!!  Form::selectRange('larg_taj', 30, 70, null, ['placeholder' => 'Sin tajo'], null , [$product->larg_taj == 0?'disabled':'required']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row mx-0">
                                     <label class="col-sm-6 col-form-label">Tipo de Bretel</label>
                                     <div class="col-sm-6">
-                                        <label for="contorno-brazo"></label>
-                                        {!! Form::select('tip_bret', [ 'Delgado' => 'Delgado', 'Delgado con aplique' => 'Delgado con aplique'],null , ['placeholder' => 'Seleccionar', $product->tip_bret == 0?'disabled':'required']) !!}
+                                        <select name="tip_bret"
+                                            onchange="
+                                                document.getElementById('preciobretel').innerHTML = 'valor agregado $'+($(this).children('option:selected')['0'].attributes['price'].value);
+                                                document.getElementById('precioVestido').innerHTML = ({{ $product->price }} + parseFloat(($(this).children('option:selected')['0'].attributes['price'].value))).toFixed(2);"
+                                            {{$product->tip_bret == 0?'disabled':'required'}}
+                                            >
+                                                <option disabled selected>Seleccionar</option> 
+                                                @foreach ($tipBret as $item)
+                                                    <option price='{{$item->price}}' value="{{$item->id}}">{{$item->name}}</option> 
+                                                @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <p>* aplique con valor agregado + $1.500</p>
+                                <p id="preciobretel">* aplique con valor agregado + 0</p>
                                 <input hidden type="text" value="{{ $product->id }}" name="id_vestido">
                                 <input hidden type="text" value="" name="id_color" id="id_color">
                                 <input hidden type="text" value="" name="color" id="colorsend">
@@ -94,7 +101,7 @@
                 </div>
                 <div class="col-12 col-md-1"></div>
                 <div class="col-12 col-md-6 h-condensed">
-                    <h5 class=""> {{ $product->price }} </h5>
+                    <h5 id="precioVestido" class=""> {{ $product->price }} </h5>
                     <div id="div" class="slider-vestido-a-medida-1 slider-vestidos"
                         style="position: relative; z-index: 0; top: 0;">
                         <div>

@@ -22,6 +22,7 @@ Route::get('/logout', [
     'as' => 'users.logout'
 ]);
 
+
 Route::get('/vestidos-a-medida', [
     'uses' => 'VestidosAMedidaController@index',
     'as' => 'users.edit'
@@ -30,6 +31,11 @@ Route::get('/vestidos-a-medida', [
 Route::get('/getCarrito', [
     'uses' => 'CarritoController@index',
     'as' => 'users.carrito'
+]);
+
+Route::get('/borrarPedido/{id}', [
+    'uses' => 'CarritoController@destroy',
+    'as' => 'carrito.borrarPedido'
 ]);
 
 Route::get('/vestidos-a-medida-dos', [

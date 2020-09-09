@@ -83,7 +83,7 @@
                                     @auth
                                         <!-- Estoy logueado -->
                                         <li class='item sub-item'>
-                                            <a href="{{ Auth::logout() }}" class='item-link'>
+                                            <a  href="{{ url('/logout') }}" class='item-link'>
                                                 SAlIR
                                             </a>
                                         </li>

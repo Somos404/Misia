@@ -30,7 +30,7 @@
   <body>
     <!-- Main Nav -->
     <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
+      <a href="/home" class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
         <img src="{{ url('assets/images/logo-misia.svg') }}" class="img-fluid">
       </a>
       <ul class="navbar-nav px-3">

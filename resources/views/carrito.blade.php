@@ -69,43 +69,60 @@
                     <div class="col-12 col-md-2"></div>
                     <div class="col-12 col-md-5 h-condensed">
                         <div class="row">
-                            <div class="col-8 bg-light mb-3">
+                            <div class="col-4 bg-light mb-3">
                                 <p class="mb-0 py-1 bold"> Producto </p>
                             </div>
                             <div class="col-4 bg-light mb-3">
                                 <p class="mb-0 py-1 bold"> Subtotal </p>
                             </div>
+                            <div class="col-4 bg-light mb-3">
+                                <p class="mb-0 py-1 bold"> Acciones </p>
+                            </div>
                         </div>
                         @foreach ($detalles as $item)
-                            <a data-toggle="collapse" href="#collapse{{$item->id}}" aria-expanded="false"
+                            <div data-toggle="collapse" href="#collapse{{$item->id}}" aria-expanded="false"
                                 aria-controls="collapse">
                                 <div class="row">
-                                    <div class="col-8 mb-1">
-                                        <p class="mb-0 py-1"> {{$item->productorNombre}} </p>
+                                    <div class="col-4 mb-1">
+                                        <p class="mb-0 py-1">Vestido: {{$item->productorName}} </p>
                                     </div>
                                     <div class="col-4 mb-1">
-                                        <p class="mb-0 py-1"> ${{$item->precio}} </p>
+                                        <p class="mb-0 py-1"> ${{$item->totalPrice}} </p>
                                     </div>
+                                    
+                                       
+                                        <div class="col-4 mb-1">
+                                            
+                                            <a 
+                                                onclick="borratpedido({{$item->id}})"
+                                                class="btn h-condensed btn-generic" 
+                                                type="submit"
+                                            >
+                                            Quitar</a>
+                                        </div>
+                                    
                                 </div>
-                            </a>
+                            </div>
                             <div  style="background-color: #ecf0f1" class="row collapse" id="collapse{{$item->id}}">
                                 <div class="col-8 mb-1">
-                                    <p class="mb-0 py-1"> {{$item->productorNombre}} </p>
+                                    <p class="mb-0 py-1">Vestido: {{$item->productorName}} </p>
                                 </div>
                                 <div class="col-4 mb-1">
-                                    <p class="mb-0 py-1"> ${{$item->productorPrecio}} </p>
+                                    <p class="mb-0 py-1"> ${{$item->productPrice}} </p>
                                 </div>
-                                <div class="col-8 mb-1">
-                                    <p class="mb-0 py-1"> {{$item->bretel}}</p>
-                                </div>
-                                <div class="col-md-4 mb-1">
-                                    <p class="mb-0 py-1"> $1.500 </p>
-                                </div>
+                               @if ($item->bretName)
+                               <div class="col-8 mb-1">
+                                <p class="mb-0 py-1">Bretel: {{$item->bretName}}</p>
+                            </div>
+                            <div class="col-md-4 mb-1">
+                                <p class="mb-0 py-1"> ${{$item->bretPrice}} </p>
+                            </div>
+                               @endif
                                 <div class="col-8 mb-1">
                                     <p class="mb-0 py-1"> Subtotal </p>
                                 </div>
                                 <div class="col-4 mb-1">
-                                    <p class="mb-0 py-1"> ${{$item->precio}} </p>
+                                    <p class="mb-0 py-1"> ${{$item->totalPrice}} </p>
                                 </div>
                                 <div class="col-8 mb-1">
                                     <p class="mb-0 py-1"> Impuestos </p>
@@ -117,7 +134,7 @@
                                     <p class="mb-0 py-1 bold"> Total </p>
                                 </div>
                                 <div class="col-md-4 mb-1">
-                                    <p class="mb-0 py-1 bold"> ${{$item->precio}} </p>
+                                    <p class="mb-0 py-1 bold"> ${{$item->totalPrice}} </p>
                                 </div>
                             </div>
 
@@ -167,5 +184,11 @@
             </form>
         </div>
     </section>
+
+    <script>
+        function borratpedido(id){
+            window.location = "borrarPedido/"+id;
+        }
+    </script>
 
 @endsection
