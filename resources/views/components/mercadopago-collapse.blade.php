@@ -1,22 +1,22 @@
-<label class="mt-3">Card details:</label>
+<label class="mt-3">Detalles de tarjeta:</label>
 
 <div class="form-group form-row">
     <div class="col-5">
-        <input onkeyup="setCardNetwork();" class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Card Number">
+        <input onkeyup="setCardNetwork();" class="custom-select" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Número de tarjeta">
     </div>
 
     <div class="col-2">
-        <input class="form-control" type="text" data-checkout="securityCode" placeholder="CVC">
+        <input class="custom-select" type="text" data-checkout="securityCode" placeholder="CVC">
     </div>
 
     <div class="col-1"></div>
 
     <div class="col-2">
-        <input class="form-control" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
+        <input class="custom-select" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
     </div>
 
     <div class="col-2">
-        <input class="form-control" type="text" data-checkout="cardExpirationYear" placeholder="YY">
+        <input class="custom-select" type="text" data-checkout="cardExpirationYear" placeholder="YY">
     </div>
 </div>
 
@@ -24,10 +24,10 @@
 
 <div class="form-group form-row">
     <div class="col-5">
-        <input class="form-control" type="text" data-checkout="cardholderName" placeholder="Your Name">
+        <input class="custom-select" type="text" data-checkout="cardholderName" placeholder="Tu nombre">
     </div>
     <div class="col-5">
-        <input class="form-control" type="email" data-checkout="cardholderEmail" placeholder="email@example.com" name="email">
+        <input class="custom-select" type="email" data-checkout="cardholderEmail" placeholder="email@example.com" name="email">
     </div>
 </div>
 
@@ -37,13 +37,13 @@
         <select class="custom-select" data-checkout="docType"></select>
     </div>
     <div class="col-4">
-        <input class="form-control" type="text" data-checkout="docNumber" placeholder="Document">
+        <input class="custom-select" type="text" data-checkout="docNumber" placeholder="Documento">
     </div>
 </div>
 
 <div class="form-group form-row">
     <div class="col">
-        <small class="form-text text-mute"  role="alert" >Your payment will be converted to {{ strtoupper(config('services.mercadopago.base_currency')) }}</small>
+        <small class="form-text text-mute"  role="alert" >Su pago se convertirá a {{ strtoupper(config('services.mercadopago.base_currency')) }}</small>
     </div>
 </div>
 

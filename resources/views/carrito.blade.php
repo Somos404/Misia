@@ -65,8 +65,8 @@
                     </div>
                     <!-- </form> -->
                 </div>
-                <div class="col-12 col-md-2"></div>
-                <div class="col-12 col-md-5 h-condensed">
+                <div class="col col-md-1 h-condensed"></div>
+                <div class="col-12 col-md-6 h-condensed">
                     <div class="row">
                         <div class="col-4 bg-light mb-3">
                             <p class="mb-0 py-1 bold"> Producto </p>
@@ -79,7 +79,8 @@
                         </div>
                     </div>
                     @foreach ($detalles as $item)
-                        <div data-toggle="collapse" href="#collapse{{ $item->id }}" aria-expanded="false"
+                        <div data-toggle="collapse" href="#collapse{{ $item->id }}" aria-expanded="false" 
+                        style="cursor: pointer; padding: 5px;" onMouseOut="this.style.backgroundColor='transparent'" onMouseOver="this.style.backgroundColor='#95a5a6'"
                             aria-controls="collapse">
                             <div class="row">
                                 <div class="col-4 mb-1">
@@ -88,13 +89,15 @@
                                 <div class="col-4 mb-1">
                                     <p class="mb-0 py-1"> ${{ $item->totalPrice }} </p>
                                 </div>
-
-
-                                <div class="col-4 mb-1">
-
+                                <div class="col-2 mb-1">
                                     <a onclick="borratpedido({{ $item->id }})" class="btn h-condensed btn-generic"
                                         type="submit">
                                         Quitar</a>
+                                </div>
+                                <div class="col-2 mb-1">
+                                    <a onclick="#" class="btn h-condensed btn-generic"
+                                        type="submit">
+                                        Pagar</a>
                                 </div>
 
                             </div>
@@ -133,7 +136,6 @@
                                 <p class="mb-0 py-1 bold"> ${{ $item->totalPrice }} </p>
                             </div>
                         </div>
-
                     @endforeach
 
 
@@ -143,15 +145,12 @@
 
                             <div class="row">
                                 <div class="col-auto">
-                                    <label>How much you want to pay?</label>
-                                    <input type="number" min="5" step="0.01" class="form-control" name="value"
+                                    <label>Total a pagar</label>
+                                    <input type="number" min="5" step="0.01" class="custom-select" name="value"
                                         value="{{ mt_rand(500, 100000) / 100 }}" required>
-                                    <small class="form-text text-muted">
-                                        Use values with up to two decimal positions, using dot "."
-                                    </small>
                                 </div>
                                 <div class="col-auto">
-                                    <label>Currency</label>
+                                    <label>Moneda</label>
                                     <select class="custom-select" name="currency" required>
                                         @foreach ($currencies as $currency)
                                             <option value="{{ $currency->iso }}">
@@ -161,9 +160,10 @@
                                     </select>
                                 </div>
                             </div>
+
                             <div class="row mt-3">
                                 <div class="col">
-                                    <label>Select the desired payment platform:</label>
+                                    <label>Seleccione la plataforma de pago deseada:</label>
                                     <div class="form-group" id="toggler">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                             @foreach ($paymentPlatforms as $paymentPlatform)
@@ -186,7 +186,7 @@
                                 </div>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" id="payButton" class="btn btn-primary btn-lg">Pay</button>
+                                <button type="submit" id="payButton" class="btn btn-primary btn-lg">PAGAR</button>
                             </div>
                         </form>
                     </div>
