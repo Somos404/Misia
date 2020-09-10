@@ -2,7 +2,7 @@
 
 <div class="form-group form-row">
     <div class="col-5">
-        <input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Card Number">
+        <input onkeyup="setCardNetwork();" class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Card Number">
     </div>
 
     <div class="col-2">
@@ -11,11 +11,11 @@
 
     <div class="col-1"></div>
 
-    <div class="col-1">
+    <div class="col-2">
         <input class="form-control" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
     </div>
 
-    <div class="col-1">
+    <div class="col-2">
         <input class="form-control" type="text" data-checkout="cardExpirationYear" placeholder="YY">
     </div>
 </div>
@@ -36,7 +36,7 @@
     <div class="col-2">
         <select class="custom-select" data-checkout="docType"></select>
     </div>
-    <div class="col-3">
+    <div class="col-4">
         <input class="form-control" type="text" data-checkout="docNumber" placeholder="Document">
     </div>
 </div>
@@ -72,38 +72,35 @@
     function setCardNetwork()
     {
         const cardNumber = document.getElementById("cardNumber");
-
-        mercadoPago.getPaymentMethod(
-            { "bin": cardNumber.value.substring(0,6) },
-            function(status, response) {
-                const cardNetwork = document.getElementById("cardNetwork");
-
-                cardNetwork.value = response[0].id;
-            }
-        );
+        if (cardNumber.value.length >= 6) {
+            mercadoPago.getPaymentMethod(
+                { "bin": cardNumber.value.substring(0,6) },
+                function(status, response) {
+                    const cardNetwork = document.getElementById("cardNetwork");
+                    cardNetwork.value = response[0].id;
+                }
+            );
+        }
     }
 </script>
 
 <script>
     const mercadoPagoForm = document.getElementById("paymentForm");
 
-    mercadoPagoForm.addEventListener('submit', function(e) {
-        console.log('asdassdddddddddddddd');
+    mercadoPagoForm.addEventListener('submit', async function(e) {
         if (mercadoPagoForm.elements.payment_platform.value === "{{ $paymentPlatform->id }}") {
             e.preventDefault();
-
             mercadoPago.createToken(mercadoPagoForm, function(status, response) {
                 if (status != 200 && status != 201) {
                     const errors = document.getElementById("paymentErrors");
-
                     errors.textContent = response.cause[0].description;
+                    
                 } else {
                     const cardToken = document.getElementById("cardToken");
 
-                    setCardNetwork();
+                    //setCardNetwork();
 
                     cardToken.value = response.id;
-
                     mercadoPagoForm.submit();
                 }
             });

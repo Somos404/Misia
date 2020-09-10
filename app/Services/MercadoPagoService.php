@@ -47,7 +47,7 @@ class MercadoPagoService
 
     public function handlePayment(Request $request)
     {
-        DD($request->all());
+        
         $request->validate([
             'card_network' => 'required',
             'card_token' => 'required',
@@ -63,6 +63,9 @@ class MercadoPagoService
         );
 
         if ($payment->status === "approved") {
+
+            //paga del vestido o lo que sea que se paga 
+
             $name = $payment->payer->first_name;
             $currency = strtoupper($payment->currency_id);
             $amount = number_format($payment->transaction_amount, 0, ',', '.');

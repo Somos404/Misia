@@ -55,6 +55,9 @@ class PayPalService
     public function handleApproval()
     {
         if (session()->has('approvalId')) {
+
+            //paga del vestido o lo que sea que se paga 
+
             $approvalId = session()->get('approvalId');
 
             $payment = $this->capturePayment($approvalId);
