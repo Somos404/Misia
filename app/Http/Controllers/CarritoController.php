@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\UserOrder;
+use App\Currency;
+use App\PaymentPlatform;
 
 class CarritoController extends Controller
 {
@@ -16,12 +18,16 @@ class CarritoController extends Controller
             ->where('user_order.pagado', 0)
             ->get()
             ->count();
-        return response()->json(array('carrito'=> $carrito), 200);
+        return response()->json(array(
+            'carrito'=> $carrito
+        ), 200);
     }
 
     public function carrito(){
         if(Auth::user()){
-           
+
+            $currencies = Currency::all();
+            $paymentPlatforms = PaymentPlatform::all();
             $user = DB::table('user_order')->where('user_id', Auth::user()->id)
                     ->join('products', 'products.id', 'user_order.product_id')
                     ->leftjoin('config', 'config.id', 'user_order.tip_bret')
@@ -40,7 +46,11 @@ class CarritoController extends Controller
                     }
             //dd($user);
             //return view('carrito');
-            return view('carrito', ['detalles' => $user]);
+            return view('carrito', [
+                'currencies' => $currencies,
+                'paymentPlatforms' => $paymentPlatforms,
+                'detalles' => $user
+                ]);
         }
         return view('auth.login');
     }

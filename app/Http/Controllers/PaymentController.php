@@ -3,102 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
-use PayPal\Api\Amount;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
-use PayPal\Exception\PayPalConnectionException;
-use PayPal\Api\Payer;
-use PayPal\Api\PaymentExecution;
-
-use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Rest\ApiContext;
-use App\UserOrder;
+use App\Resolvers\PaymentPlatformResolver;
 
 class PaymentController extends Controller
 {
-    private $apiContext;
+    protected $paymentPlatformResolver;
 
-    public function __construct()
+    public function __construct(PaymentPlatformResolver $paymentPlatformResolver)
     {
-        $payPalConfig = Config::get('paypal');
+        $this->middleware('auth');
 
-        $this->apiContext = new ApiContext(
-            new OAuthTokenCredential(
-                $payPalConfig['client_id'],
-                $payPalConfig['secret']
-            ) 
-        );
-
-        $this->apiContext->setConfig($payPalConfig['settings']);
+        $this->paymentPlatformResolver = $paymentPlatformResolver;
     }
 
-    public function payWithPayPal()
+    public function pay(Request $request)
     {
-        $payer = new Payer();
-        $payer->setPaymentMethod('paypal');
+        $rules = [
+            'value' => ['required', 'numeric', 'min:5'],
+            'currency' => ['required', 'exists:currencies,iso'],
+            'payment_platform' => ['required', 'exists:payment_platforms,id'],
+        ];
 
-        $amount = new Amount();
-        $amount->setTotal('3.99');
-        $amount->setCurrency('USD');
+        $request->validate($rules);
 
-        $transaction = new Transaction();
-        $transaction->setAmount($amount);
-        // $transaction->setDescription('See your IQ results');
+        $paymentPlatform = $this->paymentPlatformResolver
+            ->resolveService($request->payment_platform);
 
-        $callbackUrl = url('/paypal/status');
+        session()->put('paymentPlatformId', $request->payment_platform);
 
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl($callbackUrl)
-            ->setCancelUrl($callbackUrl);
-
-        $payment = new Payment();
-        $payment->setIntent('sale')
-            ->setPayer($payer)
-            ->setTransactions(array($transaction))
-            ->setRedirectUrls($redirectUrls);
-
-        try {
-            $payment->create($this->apiContext);
-            return redirect()->away($payment->getApprovalLink());
-        } catch (PayPalConnectionException $ex) {
-            echo $ex->getData();
-        }
+        return $paymentPlatform->handlePayment($request);
     }
 
-    public function payPalStatus(Request $request)
+    public function approval()
     {
-        //dd($request->all());
-        $paymentId = $request->input('paymentId');
-        $payerId = $request->input('PayerID');
-        $token = $request->input('token');
+        if (session()->has('paymentPlatformId')) {
+            $paymentPlatform = $this->paymentPlatformResolver
+                ->resolveService(session()->get('paymentPlatformId'));
 
-        if (!$paymentId || !$payerId || !$token) {
-            $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-            return redirect('/paypal/failed')->with(compact('status'));
+            return $paymentPlatform->handleApproval();
         }
 
-        $payment = Payment::get($paymentId, $this->apiContext);
+        return redirect()
+            ->route('home')
+            ->withErrors('We cannot retrieve your payment platform. Try again, plase.');
+    }
 
-        $execution = new PaymentExecution();
-        $execution->setPayerId($payerId);
-
-        /** Execute the payment **/
-        $result = $payment->execute($execution, $this->apiContext);
-
-        if ($result->getState() === 'approved') {
-
-            $product = UserOrder::find(3);
-            $product->pagado = 1;
-            $product->save();
-
-            //dd('PAGADO');
-            $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
-            return redirect('/results')->with(compact('status'));
-        }
-
-        $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-        return redirect('/results')->with(compact('status'));
+    public function cancelled()
+    {
+        return redirect()
+            ->route('home')
+            ->withErrors('You cancelled the payment');
     }
 }
