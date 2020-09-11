@@ -5,13 +5,13 @@
 	        <div class="row">
 	            <div>
 		            <div class="panel panel-default">
-		                <div class="panel-heading panel-heading-right"><h1>Cambiar contraseÃ±a</h1></div>
+		                <div class="panel-heading panel-heading-right"><h1>Cambiar contraseña</h1></div>
 		                <div class="panel-body">
 		                    <form class="form-horizontal" role="form" method="POST" action="{{ route('users.updatepassword', $user->id) }}" enctype="multipart/form-data">
 		                        {{ csrf_field() }}
 		                        <fieldset>
 		                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-		                                <label for="password" class="col-md-4 control-label">ContraseÃ±a actual*</label>
+		                                <label for="password" class="col-md-4 control-label">Contraseña actual*</label>
 		                                <div class="col-md-6">
 		                                    <input id="password" type="password" class="form-control" name="password" required>
 		                                    @if ($errors->has('password'))
@@ -22,7 +22,7 @@
 		                                </div>
 		                            </div>
 		                            <div class="form-group{{ $errors->has('new_password') ? ' has-error' : '' }}">
-		                                <label for="new-password" class="col-md-4 control-label">ContraseÃ±a nueva*</label>
+		                                <label for="new-password" class="col-md-4 control-label">Contraseña nueva*</label>
 		                                <div class="col-md-6">
 		                                    <input id="new_password" type="password" class="form-control" name="new_password" required>
 		                                    @if ($errors->has('new_password'))
@@ -33,7 +33,7 @@
 		                                </div>
 		                            </div>
 		                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-		                                <label for="password_confirmation" class="col-md-4 control-label">Confirmar contraseÃ±a*</label>
+		                                <label for="password_confirmation" class="col-md-4 control-label">Confirmar contraseña*</label>
 		                                <div class="col-md-6">
 		                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
 		                                    @if ($errors->has('password_confirmation'))

@@ -81,6 +81,13 @@
                             <ul class='item-group sub-group'>
                                 @if (Route::has('login'))
                                     @auth
+                                        @if (Auth::user()->role_id == 1)
+                                            <li class='item sub-item'>
+                                                <a  href="{{ url('/admin') }}" class='item-link'>
+                                                    ADMIN
+                                                </a>
+                                            </li>
+                                        @endif
                                         <!-- Estoy logueado -->
                                         <li class='item sub-item'>
                                             <a  href="{{ url('/logout') }}" class='item-link'>

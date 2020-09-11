@@ -98,9 +98,9 @@ class UserController extends Controller
     }
 
     public function edit($id)
-    {
+    {   
+        
         try{
-
             $user = User::find($id);
 
             if($user)

@@ -108,10 +108,12 @@ Auth::routes();
         'uses' => 'UserController@show',
         'as' => 'users.show'
     ]);
+    
     Route::get('/users/edit/{id}', [
         'uses' => 'UserController@edit',
         'as' => 'users.edit'
     ]);
+
     Route::post('/users/update/{id}', [
         'uses' => 'UserController@update',
         'as' => 'users.update'

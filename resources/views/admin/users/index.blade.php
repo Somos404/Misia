@@ -31,8 +31,8 @@
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
       <td>
-				<a class="icon-action" href="{{ route('users.show', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Ver"><i class="fa fa-eye"></i></a> 
-				<a class="icon-action" href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a> 
+				{{-- <a class="icon-action" href="{{ route('users.show', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Ver"><i class="fa fa-eye"></i></a> 
+				<a class="icon-action" href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></a>  --}}
 				<a class="icon-action" href="{{ route('users.editpassword', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Cambiar contraseña"><i class="fa fa-key"></i></a>
 				<a class="icon-action" href="{{ route('users.destroy', $user->id) }}" onclick="return confirm('Â¿Desea eliminar el usuario?')" onkeypress="return confirm('Â¿Desea eliminar el usuario?')" data-toggle="tooltip" data-placement="top" title="Eliminar">
 						<i class="fa fa-remove"></i>
