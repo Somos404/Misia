@@ -12,7 +12,9 @@
                         @foreach ($imagenes as $img)
                             <div class="col-2">
                                 <div class="card-color" onclick="sliderHandler(`{{ $img['color'] }}`,`{{ $img['colorname'] }}`,{{ json_encode($img['img']) }}, `{{ $img['id'] }}`);">
-                                    <div class="item-color" style="background-color: {{ $img['color'] }}"></div>
+                                    <div class="item-color" style="background-color: {{ $img['color'] }}">
+                                        <div class="border-black"></div>
+                                    </div>
                                     <p class="parrafo" id="{{ $img['colorname'] }}">  {{ $img['colorname'] }} </p>
                                 </div>
                             </div>

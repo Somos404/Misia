@@ -86,7 +86,7 @@
                                 <div class="col-4 mb-1">
                                     <p class="mb-0 py-1">Vestido: {{ $item->productorName }} </p>
                                 </div>
-                                <div class="col-4 mb-1">
+                                <div class="col-4 mb-1 text-right text-md-left">
                                     <p class="mb-0 py-1"> ${{ $item->totalPrice }} </p>
                                 </div>
                                 <div class="col-2 mb-1">
@@ -106,33 +106,33 @@
                             <div class="col-8 mb-1">
                                 <p class="mb-0 py-1">Vestido: {{ $item->productorName }} </p>
                             </div>
-                            <div class="col-4 mb-1">
+                            <div class="col-4 mb-1 text-right text-md-left">
                                 <p class="mb-0 py-1"> ${{ $item->productPrice }} </p>
                             </div>
                             @if ($item->bretName)
                                 <div class="col-8 mb-1">
                                     <p class="mb-0 py-1">Bretel: {{ $item->bretName }}</p>
                                 </div>
-                                <div class="col-md-4 mb-1">
+                                <div class="col-4 mb-1 text-right text-md-left">
                                     <p class="mb-0 py-1"> ${{ $item->bretPrice }} </p>
                                 </div>
                             @endif
                             <div class="col-8 mb-1">
                                 <p class="mb-0 py-1"> Subtotal </p>
                             </div>
-                            <div class="col-4 mb-1">
+                            <div class="col-4 mb-1 text-right text-md-left">
                                 <p class="mb-0 py-1"> ${{ $item->totalPrice }} </p>
                             </div>
                             <div class="col-8 mb-1">
                                 <p class="mb-0 py-1"> Impuestos </p>
                             </div>
-                            <div class="col-4 mb-1">
+                            <div class="col-4 mb-1 text-right text-md-left">
                                 <p class="mb-0 py-1"> $0.00 </p>
                             </div>
                             <div class="col-8 mb-1">
                                 <p class="mb-0 py-1 bold"> Total </p>
                             </div>
-                            <div class="col-md-4 mb-1">
+                            <div class="col-4 mb-1 text-right text-md-left">
                                 <p class="mb-0 py-1 bold"> ${{ $item->totalPrice }} </p>
                             </div>
                         </div>
