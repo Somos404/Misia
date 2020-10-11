@@ -110,6 +110,7 @@
     </div>
     <div class="overflow">
       <div class="row">
+      
         <div class="col-12 col-md-3 item">
           <img class="img-fluid" src="{{ asset('assets/images/JPG/product-1.jpg') }}" alt="Prodcutos destacados" style="width: 100%"/>
           <ul class="d-flex justify-content-between mt-3">

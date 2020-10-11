@@ -146,46 +146,65 @@
                         </div>
                     </div>
                     <ul class="header-item-group d-lg-flex justify-lg-content-between" id="header-item-group">
-                        <li class="header-item-group__item">
-                            <a href="#" class="item-link">
+                        <li class="header-item-group__item {{ Request::segment(1) === 'vestidos-a-medida' ? 'active' : null }}">
+                            <a href="{{ url('/vestidos-a-medida') }}" class="item-link">
                                 VESTIDOS A MEDIDA
                             </a>
                         </li>
-                        <li class="header-item-group__item">
-                            <a href="#" class="item-link">
+                        <li class="header-item-group__item {{ Request::segment(1) === 'asesoramiento' ? 'active' : null }}">
+                            <a href="{{ url('/asesoramiento') }}" class="item-link">
                                 ASESORAMIENTO
                             </a>
                         </li>
-                        <li class="header-item-group__item">
-                            <a href="" class="item-link">
+                        <li class="header-item-group__item {{ Request::segment(1) === 'clientes' ? 'active' : null }}">
+                            <a href="{{ url('/clientes') }}" class="item-link">
                                 CLIENTES
                             </a>
                         </li>
-                        <li class="header-item-group__item">
-                            <a href="" class="item-link">
+                        <li class="header-item-group__item {{ Request::segment(1) === 'somos-misia' ? 'active' : null }}">
+                            <a href="{{ url('/somos-misia') }}" class="item-link">
                                 SOMOS MISIA
                             </a>
                         </li>
-                        <li class="header-item-group__item">
-                            <a href="#" class="item-link">
+                        <li class="header-item-group__item {{ Request::segment(1) === 'contacto' ? 'active' : null }}">
+                            <a href="{{ url('/contacto') }}" class="item-link">
                                 CONTACTO
                             </a>
                         </li>
-                        <li class="header-item-group__item">
+                        <li class="header-item-group__item {{ Request::segment(1) === 'perfil' ? 'active' : null }}">
                             <a class="item-link">
                                 MI CUENTA
                             </a>
                             <ul class='item-group sub-group'>
-                                <li class='item sub-item'>
-                                    <a href="/login" class='item-link'>
-                                        INGRESAR
-                                    </a>
-                                </li>
-                                <li class='item sub-item'>
-                                    <a href="/register" class='item-link'>
-                                        CREAR CUENTA
-                                    </a>
-                                </li>
+                                @if (Route::has('login'))
+                                    @auth
+                                        @if (Auth::user()->role_id == 1)
+                                            <li class='item sub-item'>
+                                                <a  href="{{ url('/admin') }}" class='item-link'>
+                                                    ADMIN
+                                                </a>
+                                            </li>
+                                        @endif
+                                        <!-- Estoy logueado -->
+                                        <li class='item sub-item'>
+                                            <a  href="{{ url('/logout') }}" class='item-link'>
+                                                SAlIR
+                                            </a>
+                                        </li>
+                                    @else
+                                        <!-- No estoy logueado -->
+                                        <li class='item sub-item'>
+                                            <a href="{{ url('/login') }}" class='item-link'>
+                                                INGRESAR
+                                            </a>
+                                        </li>
+                                        <li class='item sub-item'>
+                                            <a href="{{ url('/register') }}" class='item-link'>
+                                                CREAR CUENTA
+                                            </a>
+                                        </li>
+                                    @endauth
+                                @endif
                             </ul>
                         </li>
                         <li class="header-item-group__item rrss yt">
